@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Experience - Automation Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        nav {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        nav a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #00e6e6;
+        }
+
+        /* Background Video */
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Work Experience Section */
+        .experience-section {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            margin: 60px auto;
+            max-width: 1200px; /* Increased max-width to 1200px */
+            width: 90%; /* Ensure it adapts well on smaller screens */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .experience-section h2 {
+            font-size: 3rem;
+            color: #ff4b5c;
+            margin-bottom: 30px;
+        }
+
+        /* Block Layout for Experience Items */
+        .experience-item {
+            font-size: 1.5rem;
+            color: white;
+            margin: 20px 0;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .experience-item h3 {
+            color: #00e6e6;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .experience-item p {
+            font-style: italic;
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .experience-item ul li {
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .experience-item ul li:before {
+            content: '\2022';
+            color: #ffd700;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Image or Icon for Experience Item */
+        .experience-item img {
+            max-width: 200px;
+            max-height: 200px;
+            border-radius: 50%;
+            margin-top: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .experience-item img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Card Layout for Multiple Work Experiences */
+        .experience-block {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            gap: 20px;
+        }
+
+        .experience-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            width: 45%;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .experience-card h3 {
+            color: #ff4b5c;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .experience-card ul {
+            font-size: 1.2rem;
+            color: #ffd700;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Background Video -->
+    <div class="video-container">
+        <video autoplay loop muted>
+            <source src="https://videos.pexels.com/video-files/856054/856054-uhd_3840_2160_30fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="work-experience.html">Work Experience</a>
+        <a href="resume.html">Resume</a>
+        <a href="contact.html">Contact</a>
+      
+    </nav>
+
+    <!-- Work Experience Section -->
+    <section class="experience-section">
+        <h2>Work Experience</h2>
+
+        <div class="experience-block">
+            <!-- Experience Card 1 -->
+            <div class="experience-card">
+                <h3>Software Test Engineer at Abylle Solutions</h3>
+                <p><strong>Duration:</strong> June 2022 - Present</p>
+                <p><strong>Responsibilities & Achievements:</strong></p>
+                <ul>
+                    <li>Specialized in functional, integration, regression, and API testing.</li>
+                    <li>Expertise in BFSI (Banking) and Taxation domains.</li>
+                    <li>Proficient in RestAssured API testing, automation, and compliance.</li>
+                    <li>Experience with defect management and end-to-end quality assurance processes.</li>
+                    <li>Performed client walkthroughs and onsite testing for major clients.</li>
+                    <li>Provided IPO support and served as Business QA for sanity testing in the production environment.</li>
+                </ul>
+            </div>
+
+            <!-- Experience Card 2 -->
+            <div class="experience-card">
+                <h3>Business QA Lead</h3>
+                <p><strong>Duration:</strong> 2022 - Present</p>
+                <p><strong>Key Contributions:</strong></p>
+                <ul>
+                    <li>Led testing efforts for business-critical applications, ensuring high-quality delivery.</li>
+                    <li>Handled client onboarding, demos, and requirement gathering.</li>
+                    <li>Received appreciation from clients for delivering a bug-free product.</li>
+                    <li>Collaborated with cross-functional teams to streamline quality processes.</li>
+                    <li>Provided continuous support during production and post-deployment phases.</li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+
+</html>

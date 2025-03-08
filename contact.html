@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Automation Hub - Contact</title>
     <link rel="stylesheet" href="style.css">
     <style>
@@ -19,6 +21,9 @@
             text-align: center;
             background: rgba(0, 0, 0, 0.8);
             padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         nav a {
@@ -43,16 +48,19 @@
         @keyframes fadeIn {
             from {
                 opacity: 0;
+                transform: translateY(-20px);
             }
 
             to {
                 opacity: 1;
+                transform: translateY(0);
             }
         }
 
         h1 {
             text-align: center;
             color: #ff4b5c;
+            margin-bottom: 30px;
         }
 
         .contact-section {
@@ -62,7 +70,8 @@
             background: #2a2b4a;
             border-radius: 15px;
             padding: 20px;
-            margin: 20px 0;
+            margin: 20px auto;
+            width: 80%;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
@@ -71,16 +80,58 @@
             text-decoration: none;
             font-size: 18px;
             margin: 10px 0;
+            transition: color 0.3s;
         }
 
         .contact-section a:hover {
             color: #fff;
         }
 
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background: #fff;
+            color: #333;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #ff4b5c;
+            outline: none;
+        }
+
+        .contact-form button {
+            padding: 15px;
+            background: #ff4b5c;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #e03e4f;
+        }
+
         footer {
             text-align: center;
             padding: 20px;
             background: rgba(0, 0, 0, 0.8);
+            position: relative;
         }
     </style>
 </head>
@@ -90,18 +141,28 @@
         <a href="index.html">Home</a>
         <a href="skills.html">Skills</a>
         <a href="projects.html">Projects</a>
+        <a href="work-experience.html">Work Experience</a>
         <a href="resume.html">Resume</a>
         <a href="contact.html">Contact</a>
     </nav>
-
+    
     <div class="container">
         <h1>Contact Me</h1>
 
         <div class="contact-section">
             <p>GitHub: <a href="https://github.com/rohit1967/automation-portfolio" target="_blank">rohit1967</a></p>
             <p>Email: <a href="mailto:rohitshindhe1967@gmail.com">rohitshindhe1967@gmail.com</a></p>
-            <p>Contact Number: <a href="tel:+918884245366">+91 888 424 5366</a></p>
+            <p>Contact Number: <a href="tel:+918884245366">+91 8884245366</a></p>
         </div>
+
+        <h2>Send Me a Message</h2>
+        <!-- Form to open user's default mail client with prefilled details -->
+        <form class="contact-form" action="mailto:rohitshindhe1967@gmail.com" method="POST" enctype="text/plain">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
     </div>
 
     <footer>© 2025 Automation Hub | Built by Rohit Shindhe</footer>
