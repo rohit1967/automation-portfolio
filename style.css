@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* style.css */
 body {
     font-family: 'Poppins', sans-serif;
@@ -34,40 +33,3 @@ footer {
     text-align: center;
     margin-top: 20px;
 }
-=======
-/* style.css */
-body {
-    font-family: 'Poppins', sans-serif;
-    background: #1e1e2f;
-    color: white;
-    margin: 0;
-    padding: 0;
-    line-height: 1.8;
-}
-
-nav {
-    text-align: center;
-    background: #2a2b4a;
-    padding: 15px 0;
-}
-
-nav a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-}
-
-nav a:hover {
-    color: #ff4b5c;
-}
-
-section {
-    text-align: center;
-    padding: 40px;
-}
-
-footer {
-    text-align: center;
-    margin-top: 20px;
-}
->>>>>>> f612e35f390b87390a97fd05a4b023765828cd25
