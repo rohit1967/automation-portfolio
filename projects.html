@@ -3,8 +3,9 @@
 
 <head>
     <title>Automation Hub - Projects</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
     <style>
+        /* Reset & Base */
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
@@ -19,100 +20,218 @@
             text-align: center;
             background: rgba(0, 0, 0, 0.8);
             padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
         }
 
-       nav a {
-  position: relative;
-  display: inline-block;
-  color: #bbb;
-  margin: 0 18px;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.3s ease;
-  padding-bottom: 5px; /* space for underline */
-}
+        nav a {
+            position: relative;
+            display: inline-block;
+            color: #bbb;
+            margin: 0 18px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            padding-bottom: 5px;
+            font-weight: 600;
+        }
 
-nav a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #ff4b5c, #ffd966);
-  border-radius: 3px;
-  transition: width 0.3s ease;
-}
+        nav a::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff4b5c, #ffd966);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
 
-nav a:hover,
-nav a:focus {
-  color: #ff4b5c;
-}
+        nav a:hover,
+        nav a:focus {
+            color: #ff4b5c;
+            outline: none;
+        }
 
-nav a:hover::after,
-nav a:focus::after {
-  width: 100%;
-}
+        nav a:hover::after,
+        nav a:focus::after {
+            width: 100%;
+        }
 
-
+        /* Container */
         .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 20px;
-            animation: fadeIn 1.5s ease-in-out;
+            max-width: 1100px;
+            margin: 60px auto 40px;
+            padding: 0 20px;
+            animation: fadeIn 1.6s ease-in-out forwards;
+            opacity: 0;
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
             to {
                 opacity: 1;
             }
         }
 
+        /* Main Heading */
         h1 {
             text-align: center;
             color: #ff4b5c;
+            margin-bottom: 40px;
+            font-weight: 700;
+            font-size: 2.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
 
-        .project-section {
-            display: flex;
-            align-items: center;
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        /* Individual Project Card */
+        .project-card {
             background: #2a2b4a;
+            border-radius: 18px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            padding: 25px;
+            display: flex;
+            gap: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: default;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px #ff4b5caa;
+        }
+
+        .project-image {
+            flex-shrink: 0;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff4b5c, #ffd966);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            box-shadow: 0 0 18px #ff4b5cbb;
+        }
+
+        .project-image img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .project-info {
+            flex: 1;
+        }
+
+        .project-info strong {
+            font-size: 1.3rem;
+            color: #ffd966;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .project-info p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #ddd;
+            margin: 0;
+        }
+
+        /* Certifications Section */
+        .certifications-section {
+            margin-top: 60px;
+        }
+
+        .certifications-section h1 {
+            margin-bottom: 30px;
+        }
+
+        .certification-card {
+            background: #2a2b4a;
+            border-radius: 18px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            padding: 25px;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            max-width: 650px;
+            margin: 0 auto;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .certification-card:hover {
+            box-shadow: 0 12px 30px #ffd966aa;
+        }
+
+        .certification-image {
+            flex-shrink: 0;
+            width: 110px;
+            height: 110px;
             border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            box-shadow: 0 0 20px #ffd966bb;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .project-section img {
-            width: 80px;
-            height: 80px;
-            margin-right: 20px;
+        .certification-image img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
         }
 
+        .certification-info strong {
+            font-size: 1.25rem;
+            color: #ffd966;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .certification-info p {
+            font-size: 1rem;
+            color: #ddd;
+            margin: 0;
+        }
+
+        /* Footer */
         footer {
             text-align: center;
             padding: 20px;
             background: rgba(0, 0, 0, 0.8);
+            font-size: 0.9rem;
+            color: #bbb;
+            letter-spacing: 0.05em;
         }
 
-        .certification-section {
-            display: flex;
-            align-items: center;
-            background: #2a2b4a;
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
+        /* Responsive tweak for smaller screens */
+        @media (max-width: 480px) {
+            .project-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
 
-        .certification-section img {
-            width: 100px;
-            height: 100px;
-            margin-right: 20px;
+            .project-info strong {
+                font-size: 1.2rem;
+            }
+
+            .certification-card {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -121,43 +240,71 @@ nav a:focus::after {
     <nav>
         <a href="index.html">Home</a>
         <a href="skills.html">Skills</a>
-        <a href="projects.html">Projects</a>
+        <a href="projects.html" aria-current="page">Projects</a>
         <a href="work-experience.html">Work Experience</a>
         <a href="resume.html">Resume</a>
         <a href="contact.html">Contact</a>
     </nav>
 
-    <div class="container">
+    <main class="container" role="main">
         <h1>My Projects</h1>
 
-        <div class="project-section">
-            <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Docker-Selenium Framework">
-            <p><strong>Docker-Selenium Automation Framework:</strong> Designed a scalable automation framework leveraging <b>Docker</b> for containerized execution and <b>Selenium Grid</b> for parallel browser testing. Integrated <b>TestNG</b> for structured test execution and utilized <b>Jenkins</b> for CI/CD workflows.</p>
-        </div>
+        <section class="projects-grid" aria-label="Projects List">
+            <article class="project-card" tabindex="0">
+                <div class="project-image" aria-hidden="true">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Docker-Selenium Framework Icon" />
+                </div>
+                <div class="project-info">
+                    <strong>Docker-Selenium Automation Framework:</strong>
+                    <p>Designed a scalable automation framework leveraging <b>Docker</b> for containerized execution and <b>Selenium Grid</b> for parallel browser testing. Integrated <b>TestNG</b> for structured test execution and utilized <b>Jenkins</b> for CI/CD workflows.</p>
+                </div>
+            </article>
 
-        <div class="project-section">
-            <img src="https://cdn-icons-png.flaticon.com/512/3767/3767084.png" alt="E-Invoicing System">
-            <p><strong>E-Invoicing System:</strong> Automated API validation and ensured <b>ZATCA</b> compliance by developing robust test scripts to validate invoice payloads and handle complex B2B/B2C scenarios efficiently.</p>
-        </div>
+            <article class="project-card" tabindex="0">
+                <div class="project-image" aria-hidden="true">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3767/3767084.png" alt="E-Invoicing System Icon" />
+                </div>
+                <div class="project-info">
+                    <strong>E-Invoicing System:</strong>
+                    <p>Automated API validation and ensured <b>ZATCA</b> compliance by developing robust test scripts to validate invoice payloads and handle complex B2B/B2C scenarios efficiently.</p>
+                </div>
+            </article>
 
-        <div class="project-section">
-            <img src="https://cdn-icons-png.flaticon.com/512/3037/3037195.png" alt="GST Reconciliation">
-            <p><strong>GST Reconciliation:</strong> Built a comprehensive data-mapping solution to compare invoice data across multiple sheets, handle one-to-many relationships, and ensure accurate GST compliance using advanced VBA automation.</p>
-        </div>
+            <article class="project-card" tabindex="0">
+                <div class="project-image" aria-hidden="true">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3037/3037195.png" alt="GST Reconciliation Icon" />
+                </div>
+                <div class="project-info">
+                    <strong>GST Reconciliation:</strong>
+                    <p>Built a comprehensive data-mapping solution to compare invoice data across multiple sheets, handle one-to-many relationships, and ensure accurate GST compliance using advanced VBA automation.</p>
+                </div>
+            </article>
 
-        <div class="project-section">
-            <img src="https://cdn-icons-png.flaticon.com/512/4825/4825073.png" alt="CI/CD Framework">
-            <p><strong>CI/CD Framework:</strong> Developed a hybrid automation framework integrating <b>Docker</b> for isolated environments and <b>Jenkins</b> for automated build and deployment pipelines, ensuring rapid feedback and reduced manual intervention.</p>
-        </div>
+            <article class="project-card" tabindex="0">
+                <div class="project-image" aria-hidden="true">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4825/4825073.png" alt="CI/CD Framework Icon" />
+                </div>
+                <div class="project-info">
+                    <strong>CI/CD Framework:</strong>
+                    <p>Developed a hybrid automation framework integrating <b>Docker</b> for isolated environments and <b>Jenkins</b> for automated build and deployment pipelines, ensuring rapid feedback and reduced manual intervention.</p>
+                </div>
+            </article>
+        </section>
 
-        <h1>Certifications</h1>
+        <section class="certifications-section" aria-label="Certifications">
+            <h1>Certifications</h1>
 
-        <div class="certification-section">
-            <img src="Kodnest-Logo-400-300x300.png" alt="Kodnest Certification">
-            <p><strong>Certified Manual & Automation Tester:</strong> Certified by <b>Kodnest</b> for expertise in manual and automated testing methodologies, including functional, regression, and API testing.</p>
-        </div>
-
-    </div>
+            <article class="certification-card" tabindex="0">
+                <div class="certification-image" aria-hidden="true">
+                    <img src="Kodnest-Logo-400-300x300.png" alt="Kodnest Certification Logo" />
+                </div>
+                <div class="certification-info">
+                    <strong>Certified Manual & Automation Tester:</strong>
+                    <p>Certified by <b>Kodnest</b> for expertise in manual and automated testing methodologies, including functional, regression, and API testing.</p>
+                </div>
+            </article>
+        </section>
+    </main>
 
     <footer>© 2025 Automation Hub | Built by Rohit Shindhe</footer>
 </body>
