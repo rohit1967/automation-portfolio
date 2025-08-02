@@ -2,190 +2,197 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work Experience - Automation Hub</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            color: white;
-            line-height: 1.8;
-            overflow-x: hidden;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Work Experience - Automation Hub</title>
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        color: white;
+        line-height: 1.8;
+        overflow-x: hidden;
+        background: #000; /* just to help see layout */
+    }
 
-        /* Navigation Bar */
-        nav {
-            text-align: center;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 15px 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 100;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-        }
+    nav {
+        text-align: center;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 15px 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
 
-        nav a {
-            color: white;
-            margin: 0 20px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
+  nav a {
+  position: relative;
+  display: inline-block;
+  color: #bbb;
+  margin: 0 18px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  padding-bottom: 5px; /* space for underline */
+}
 
-        nav a:hover {
-            color: #00e6e6;
-        }
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ff4b5c, #ffd966);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
 
-        /* Background Video */
-        .video-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
+nav a:hover,
+nav a:focus {
+  color: #ff4b5c;
+}
 
-        .video-container video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+nav a:hover::after,
+nav a:focus::after {
+  width: 100%;
+}
 
-        /* Work Experience Section */
-        .experience-section {
-            padding: 80px 20px;
-            text-align: center;
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 20px;
-            margin: 60px auto;
-            max-width: 1200px; /* Increased max-width to 1200px */
-            width: 90%; /* Ensure it adapts well on smaller screens */
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease-in-out;
-        }
+    .video-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+    }
 
-        .experience-section h2 {
-            font-size: 3rem;
-            color: #ff4b5c;
-            margin-bottom: 30px;
-        }
+    .video-container video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
-        /* Block Layout for Experience Items */
-        .experience-item {
-            font-size: 1.5rem;
-            color: white;
-            margin: 20px 0;
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    .experience-section {
+        padding: 80px 20px;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 20px;
+        margin: 60px auto;
+        max-width: 1200px;
+        width: 90%;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease-in-out;
+    }
 
-        .experience-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
-        }
+    .experience-section h2 {
+        font-size: 3rem;
+        color: #ff4b5c;
+        margin-bottom: 30px;
+    }
 
-        .experience-item h3 {
-            color: #00e6e6;
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-        }
+    .experience-block {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 20px;
+        align-items: stretch; /* Make cards equal height */
+        /* prevent wrapping so cards stay equal height */
+        flex-wrap: nowrap;
+    }
 
-        .experience-item p {
-            font-style: italic;
-            color: #ffd700;
-            margin-bottom: 15px;
-        }
+    .experience-card {
+        display: flex;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 25px;
+        width: 45%;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        text-align: left;
 
-        .experience-item ul {
-            list-style: none;
-            padding: 0;
-        }
+        /* Fix the height - set min-height for the tallest card you want */
+        min-height: 600px;
+    }
 
-        .experience-item ul li {
-            margin-bottom: 12px;
-            font-size: 1.2rem;
-            padding-left: 20px;
-            position: relative;
-        }
+    .experience-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    }
 
-        .experience-item ul li:before {
-            content: '\2022';
-            color: #ffd700;
-            font-size: 1.5rem;
-            position: absolute;
-            left: 0;
-        }
+    .logo-wrapper {
+        background: transparent !important;
+        padding: 0;
+        margin-bottom: 8px;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        text-align: center;
+        flex-shrink: 0; /* prevent shrinking */
+    }
 
-        /* Image or Icon for Experience Item */
-        .experience-item img {
-            max-width: 200px;
-            max-height: 200px;
-            border-radius: 50%;
-            margin-top: 20px;
-            transition: transform 0.3s ease;
-        }
+    .experience-logo {
+        width: 80%;
+        height: auto;
+        display: inline-block;
+        object-fit: contain;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+    }
 
-        .experience-item img:hover {
-            transform: scale(1.1);
-        }
+    .experience-card h3 {
+        color: #ff4b5c;
+        font-size: 2rem;
+        margin: 5px 0 15px 0;
+        flex-shrink: 0;
+    }
 
-        /* Card Layout for Multiple Work Experiences */
-        .experience-block {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-            gap: 20px;
-        }
+    .experience-content {
+        flex-grow: 1; /* fill remaining space */
+        overflow-y: auto; /* scroll if content is too long */
+        padding-right: 10px; /* to avoid scrollbar overlap */
+    }
 
-        .experience-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 25px;
-            width: 45%;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-        }
+    .experience-card ul {
+        font-size: 1.2rem;
+        color: #ffd700;
+        list-style: none;
+        padding-left: 20px;
+    }
 
-        .experience-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
-        }
+    .experience-card ul li {
+        margin-bottom: 12px;
+        position: relative;
+        padding-left: 20px;
+    }
 
-        .experience-card h3 {
-            color: #ff4b5c;
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
+    .experience-card ul li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #ffd700;
+        font-size: 1.5rem;
+        line-height: 1;
+    }
 
-        .experience-card ul {
-            font-size: 1.2rem;
-            color: #ffd700;
-        }
-
-    </style>
+    .experience-card p {
+        color: #ffd700;
+        font-style: italic;
+    }
+</style>
 </head>
 
 <body>
     <!-- Background Video -->
     <div class="video-container">
         <video autoplay loop muted>
-            <source src="https://videos.pexels.com/video-files/856054/856054-uhd_3840_2160_30fps.mp4" type="video/mp4">
+            <source
+                src="https://videos.pexels.com/video-files/856054/856054-uhd_3840_2160_30fps.mp4"
+                type="video/mp4" />
             Your browser does not support the video tag.
         </video>
     </div>
@@ -198,7 +205,6 @@
         <a href="work-experience.html">Work Experience</a>
         <a href="resume.html">Resume</a>
         <a href="contact.html">Contact</a>
-      
     </nav>
 
     <!-- Work Experience Section -->
@@ -206,38 +212,51 @@
         <h2>Work Experience</h2>
 
         <div class="experience-block">
-            <!-- Experience Card 1 -->
+            <!-- Abylle Experience -->
             <div class="experience-card">
-                <h3>Software Test Engineer at Abylle Solutions</h3>
-                <p><strong>Duration:</strong> June 2022 - Present</p>
-                <p><strong>Responsibilities & Achievements:</strong></p>
-                <ul>
-                    <li>Specialized in functional, integration, regression, and API testing.</li>
-                    <li>Expertise in BFSI (Banking) and Taxation domains.</li>
-                    <li>Proficient in RestAssured API testing, automation, and compliance.</li>
-                    <li>Experience with defect management and end-to-end quality assurance processes.</li>
-                    <li>Performed client walkthroughs and onsite testing for major clients.</li>
-                    <li>Provided IPO support and served as Business QA for sanity testing in the production environment.</li>
-                </ul>
+                <div class="logo-wrapper">
+                    <img src="Abylle-logo-High-quality.png" alt="Abylle Logo" class="experience-logo" />
+                </div>
+                <h3>Software Test Engineer / Business QA Lead at Abylle Solutions</h3>
+                <div class="experience-content">
+                    <p><strong>Duration:</strong> June 2022 – Present</p>
+                    <p><strong>Responsibilities & Achievements:</strong></p>
+                    <ul>
+                        <li>Specialized in functional, integration, regression, and API testing.</li>
+                        <li>Expertise in BFSI (Banking) and Taxation domains.</li>
+                        <li>Proficient in RestAssured API testing, automation, and compliance.</li>
+                        <li>Experience with defect management and end-to-end quality assurance processes.</li>
+                        <li>Performed client walkthroughs and onsite testing for major clients.</li>
+                        <li>Provided IPO support and served as Business QA for sanity testing in the production environment.</li>
+                        <li>Led testing efforts for business-critical applications, ensuring high-quality delivery.</li>
+                        <li>Handled client onboarding, demos, and requirement gathering.</li>
+                        <li>Received appreciation from clients for delivering a bug-free product.</li>
+                        <li>Collaborated with cross-functional teams to streamline quality processes.</li>
+                        <li>Provided continuous support during production and post-deployment phases.</li>
+                    </ul>
+                </div>
             </div>
 
-            <!-- Experience Card 2 -->
+            <!-- Capgemini Experience -->
             <div class="experience-card">
-                <h3>Business QA Lead</h3>
-                <p><strong>Duration:</strong> 2022 - Present</p>
-                <p><strong>Key Contributions:</strong></p>
-                <ul>
-                    <li>Led testing efforts for business-critical applications, ensuring high-quality delivery.</li>
-                    <li>Handled client onboarding, demos, and requirement gathering.</li>
-                    <li>Received appreciation from clients for delivering a bug-free product.</li>
-                    <li>Collaborated with cross-functional teams to streamline quality processes.</li>
-                    <li>Provided continuous support during production and post-deployment phases.</li>
-                </ul>
+                <div class="logo-wrapper">
+                    <img src="capgemini-logo.png" alt="Capgemini Logo" class="experience-logo" />
+                </div>
+                <h3>Software Engineer at Capgemini</h3>
+                <div class="experience-content">
+                    <p><strong>Duration:</strong> Jun 2025 – Present</p>
+                    <p><strong>Key Contributions:</strong></p>
+                    <ul>
+                        <li>Developed end-to-end automation for AIG’s internal applications using Java and Playwright (GATE framework).</li>
+                        <li>Automated major business workflows including Add Client, Add Brokerages, and Producer Code Validation.</li>
+                        <li>Integrated automation suites with Jenkins CI/CD pipelines for scheduled regression testing.</li>
+                        <li>Designed reusable scripts with dynamic selectors and robust error handling.</li>
+                        <li>Collaborated with developers and QA leads in Agile sprints to ensure timely and quality deliverables.</li>
+                    </ul>
+                </div>
             </div>
         </div>
-
     </section>
-
 </body>
 
 </html>

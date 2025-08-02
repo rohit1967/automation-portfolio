@@ -26,17 +26,39 @@
             z-index: 1000;
         }
 
-        nav a {
-            color: white;
-            margin: 0 20px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
+ nav a {
+  position: relative;
+  display: inline-block;
+  color: #bbb;
+  margin: 0 18px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  padding-bottom: 5px; /* space for underline */
+}
 
-        nav a:hover {
-            color: #ff4b5c;
-        }
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ff4b5c, #ffd966);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #ff4b5c;
+}
+
+nav a:hover::after,
+nav a:focus::after {
+  width: 100%;
+}
+
 
         .container {
             max-width: 1200px;

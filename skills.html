@@ -2,134 +2,406 @@
 <html lang="en">
 
 <head>
-    <title>Automation Hub - Skills</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #1e1e2f;
-            color: white;
-            line-height: 1.8;
-            overflow-x: hidden;
-        }
+  <title>Automation Hub - Skills</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    /* Reset & Base */
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background: #12131a;
+      color: #eee;
+      overflow-x: hidden;
+      position: relative;
+    }
 
-        nav {
-            text-align: center;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 15px 0;
-        }
+    /* Particles background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background:
+        radial-gradient(#ff4b5c55 1px, transparent 1px),
+        radial-gradient(#00ffd555 1px, transparent 1px);
+      background-position: 0 0, 25px 25px;
+      background-size: 50px 50px;
+      animation: moveParticles 20s linear infinite;
+      z-index: 0;
+      pointer-events: none;
+      filter: blur(1.5px);
+    }
 
-        nav a {
-            color: white;
-            margin: 0 20px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
+    @keyframes moveParticles {
+      0% {
+        background-position: 0 0, 25px 25px;
+      }
+      100% {
+        background-position: 50px 50px, 75px 75px;
+      }
+    }
 
-        nav a:hover {
-            color: #ff4b5c;
-        }
+    nav {
+      position: sticky;
+      top: 0;
+      background: #1c1f2a;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 0 15px #ff4b5caa;
+      z-index: 10;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 20px;
-            animation: fadeIn 1.5s ease-in-out;
-        }
+    nav a {
+      color: #eee;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin: 0 25px;
+      position: relative;
+      padding-bottom: 6px;
+      transition: color 0.3s;
+    }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
+    nav a:hover {
+      color: #00ffd5;
+    }
 
-            to {
-                opacity: 1;
-            }
-        }
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #ff4b5c, #00ffd5);
+      transition: width 0.3s ease;
+      border-radius: 4px;
+    }
 
-        h1 {
-            text-align: center;
-            color: #ff4b5c;
-        }
+    nav a:hover::after {
+      width: 100%;
+    }
 
-        .skill-section {
-            display: flex;
-            align-items: center;
-            background: #2a2b4a;
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
+    .container {
+      max-width: 1100px;
+      margin: 60px auto 100px;
+      padding: 0 20px;
+      position: relative;
+      z-index: 5;
+    }
 
-        .skill-section img {
-            width: 80px;
-            height: 80px;
-            margin-right: 20px;
-        }
+    h1 {
+      text-align: center;
+      font-weight: 800;
+      font-size: 3.4rem;
+      margin-bottom: 50px;
+      letter-spacing: 2px;
+      color: #ff4b5c;
+      text-shadow: 0 0 12px #ff4b5ccc;
+    }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
-        }
-    </style>
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 35px;
+    }
+
+    .skill-section {
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 30px 30px 30px 90px;
+      position: relative;
+      box-shadow:
+        0 0 10px #ff4b5c44,
+        0 0 30px #00ffd544;
+      cursor: default;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeSlideIn 0.6s forwards;
+    }
+
+    .skill-section:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+    .skill-section:nth-child(2) {
+      animation-delay: 0.25s;
+    }
+    .skill-section:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+    .skill-section:nth-child(4) {
+      animation-delay: 0.55s;
+    }
+    .skill-section:nth-child(5) {
+      animation-delay: 0.7s;
+    }
+    .skill-section:nth-child(6) {
+      animation-delay: 0.85s;
+    }
+    .skill-section:nth-child(7) {
+      animation-delay: 1s;
+    }
+    .skill-section:nth-child(8) {
+      animation-delay: 1.15s;
+    }
+
+    @keyframes fadeSlideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .skill-icon-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 30px;
+      transform: translateY(-50%);
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(45deg, #ff4b5c, #00ffd5);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow:
+        0 0 12px #ff4b5caa,
+        0 0 20px #00ffd5aa;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      filter: drop-shadow(0 0 1px #0008);
+      z-index: 10;
+    }
+
+    .skill-section:hover .skill-icon-wrapper {
+      animation: bounceIcon 0.6s ease forwards;
+      box-shadow:
+        0 0 25px #ff4b5cff,
+        0 0 40px #00ffd5ff;
+      transform: translateY(calc(-50% - 10px));
+    }
+
+    @keyframes bounceIcon {
+      0% {
+        transform: translateY(-50%);
+      }
+      50% {
+        transform: translateY(calc(-50% - 20px));
+      }
+      100% {
+        transform: translateY(calc(-50% - 10px));
+      }
+    }
+
+.skill-icon-wrapper img {
+  width: 22px;           /* 🔁 Shrink logo inside */
+  height: 22px;
+}  .skill-text {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #eee;
+      transition: color 0.3s ease;
+    }
+
+    .skill-section:hover .skill-text strong {
+      color: #00ffd5;
+    }
+
+    .skill-text strong {
+      color: #ff4b5c;
+      font-weight: 700;
+      transition: color 0.3s ease;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 10px;
+      background: #1c1f2a;
+      font-size: 1rem;
+      letter-spacing: 0.6px;
+      color: #777;
+      box-shadow: inset 0 1px 5px #0005;
+      position: relative;
+      z-index: 5;
+    }
+
+    /* Responsive tweaks */
+   @media (max-width: 480px) {
+  .skill-icon-wrapper img {
+    width: 16px;
+    height: 16px;
+  }
+}
+  .skill-icon-wrapper img {
+  width: 22px;
+  height: 22px;
+}
+.skill-icon-wrapper {
+  width: 50px;
+  height: 50px;
+}
+    
+  </style>
 </head>
 
 <body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="skills.html">Skills</a>
-        <a href="projects.html">Projects</a>
-        <a href="work-experience.html">Work Experience</a>
-        <a href="resume.html">Resume</a>
-        <a href="contact.html">Contact</a>
-      
-    </nav>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="work-experience.html">Work Experience</a>
+    <a href="resume.html">Resume</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-    <div class="container">
-        <h1>My Technical Skills</h1>
-
-        <div class="skill-section">
-            <img src="https://cdn-icons-png.flaticon.com/512/6195/6195700.png" alt="Automation Testing">
-            <p><strong>Automation Testing:</strong> Proficient in <b>Selenium</b> and <b>TestNG</b> for robust, scalable test automation. Experienced in using <b>Eclipse</b> and <b>IntelliJ</b> to create, debug, and maintain automated test scripts for web applications.</p>
+  <div class="container">
+    <h1>My Technical Skills</h1>
+    <div class="skills-grid">
+      <div class="skill-section">
+        <div class="skill-icon-wrapper">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/6195/6195700.png"
+            alt="Automation Testing"
+          />
         </div>
+        <p class="skill-text">
+          <strong>Automation Testing:</strong> Proficient in
+          <b>Selenium</b> and <b>TestNG</b> for robust, scalable test
+          automation. Experienced in using <b>Eclipse</b> and
+          <b>IntelliJ</b> to create, debug, and maintain automated test
+          scripts for web applications. Implemented advanced methods like
+          <b>handleAlert()</b> for managing browser alerts,
+          <b>switchToFrame()</b> for iframe handling, and
+          <b>waitForElement()</b> for dynamic waits.
+        </p>
+      </div>
 
-        <div class="skill-section">
-            <img src="https://cdn-icons-png.flaticon.com/512/6132/6132221.png" alt="API Testing">
-            <p><strong>API Testing:</strong> Skilled in testing REST APIs using <b>Postman</b> for manual verification and <b>APIDOG</b> for automated workflows, ensuring seamless communication between services and accurate data exchange.</p>
+      <div class="skill-section">
+        <div class="skill-icon-wrapper">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/6132/6132221.png"
+            alt="API Testing"
+          />
         </div>
+        <p class="skill-text">
+          <strong>API Testing:</strong> Skilled in testing REST APIs using
+          <b>Postman</b> for manual verification and <b>APIDOG</b> for
+          automated workflows, ensuring seamless communication between
+          services and accurate data exchange. Automated API testing using
+          <b>sendRequest()</b> for POST and GET methods, and validating JSON
+          responses with <b>parseJson()</b>.
+        </p>
+      </div>
 
-        <div class="skill-section">
-            <img src="https://cdn-icons-png.flaticon.com/512/724/724933.png" alt="Defect Management">
-            <p><strong>Defect Management:</strong> Experienced in tracking and managing bugs using <b>Jira</b>, ensuring clear communication within agile environments. Well-versed in <b>Git Scrum</b> methodologies for continuous collaboration and efficient workflow.</p>
+      <div class="skill-section">
+        <div class="skill-icon-wrapper">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/724/724933.png"
+            alt="Defect Management"
+          />
         </div>
+        <p class="skill-text">
+          <strong>Defect Management:</strong> Experienced in tracking and
+          managing bugs using <b>Jira</b>, ensuring clear communication within
+          agile environments. Well-versed in <b>Git Scrum</b> methodologies
+          for continuous collaboration and efficient workflow. Used
+          automation scripts to log defects and capture screenshots through
+          methods like <b>captureScreenshot()</b> for faster bug
+          identification.
+        </p>
+      </div>
 
-        <div class="skill-section">
-            <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="Programming">
-            <p><strong>Programming:</strong> Advanced knowledge of <b>Core Java</b> for developing robust automation frameworks, along with <b>JavaScript</b> and <b>TypeScript</b> for handling dynamic web applications. Experienced in <b>SQL</b> for efficient data extraction and validation.</p>
+      <div class="skill-section">
+        <div class="skill-icon-wrapper">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/732/732212.png"
+            alt="Programming"
+          />
         </div>
+        <p class="skill-text">
+          <strong>Programming:</strong> Advanced knowledge of <b>Core Java</b>
+          for developing robust automation frameworks, along with
+          <b>JavaScript</b> and <b>TypeScript</b> for handling dynamic web
+          applications. Experienced in <b>SQL</b> for efficient data
+          extraction and validation. Built utilities like
+          <b>readExcelData()</b> and <b>writeToFile()</b> for handling
+          external data sources.
+        </p>
+      </div>
 
-        <div class="skill-section">
-            <img src="https://cdn-icons-png.flaticon.com/512/3222/3222691.png" alt="Testing Types">
-            <p><strong>Testing Types:</strong> In-depth understanding and hands-on experience with <b>Functional</b>, <b>Regression</b>, <b>System</b>, <b>Integration</b>, and <b>Data Migration Testing</b>. Adept at <b>UAT</b>, <b>GUI</b>, and <b>Ad Hoc Testing</b> to ensure comprehensive product validation.</p>
+      <div class="skill-section">
+        <div class="skill-icon-wrapper">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/3222/3222691.png"
+            alt="Testing Types"
+          />
         </div>
+        <p class="skill-text">
+          <strong>Testing Types:</strong> In-depth understanding and
+          hands-on experience with <b>Functional</b>, <b>Regression</b>,
+          <b>System</b>, <b>Integration</b>, and <b>Data Migration Testing</b>.
+          Adept at <b>UAT</b>, <b>GUI</b>, and <b>Ad Hoc Testing</b> to ensure
+          comprehensive product validation. Automated complex scenarios using
+          methods like <b>dataDrivenTesting()</b> and <b>verifyText()</b>.
+        </p>
+      </div>
 
-        <div class="skill-section">
-            <img src="https://cdn-icons-png.flaticon.com/512/1161/1161395.png" alt="CI/CD">
-            <p><strong>CI/CD:</strong> Hands-on expertise with <b>Jenkins</b> for automating the build and deployment pipeline, <b>Docker</b> for containerizing applications, and <b>Selenium Grid</b> for parallel execution across multiple environments.</p>
+      <div class="skill-section">
+        <div class="skill-icon-wrapper">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1161/1161395.png"
+            alt="CI/CD"
+          />
         </div>
+        <p class="skill-text">
+          <strong>CI/CD:</strong> Hands-on expertise with <b>Jenkins</b> for
+          automating the build and deployment pipeline, <b>Docker</b> for
+          containerizing applications, and <b>Selenium Grid</b> for parallel
+          execution across multiple environments. Automated test execution
+          using the <b>triggerJenkinsJob()</b> method and containerized tests
+          using Docker scripts.
+        </p>
+      </div>
 
-        <div class="skill-section">
-            <img src="https://cdn-icons-png.flaticon.com/512/1237/1237987.png" alt="Mobile Automation">
-            <p><strong>Mobile Automation:</strong> Proficient in <b>Appium</b> for mobile application automation, paired with a strong grasp of <b>BDD frameworks</b> to deliver behavior-driven testing solutions for Android and iOS applications.</p>
+      <div class="skill-section">
+        <div class="skill-icon-wrapper">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1237/1237987.png"
+            alt="Mobile Automation"
+          />
         </div>
+        <p class="skill-text">
+          <strong>Mobile Automation:</strong> Proficient in <b>Appium</b> for
+          mobile application automation, paired with a strong grasp of <b>BDD
+            frameworks</b> to deliver behavior-driven testing solutions for
+          Android and iOS applications. Utilized methods like <b>launchApp()</b>
+          and <b>swipe()</b> for advanced mobile interactions.
+        </p>
+      </div>
+
+      <div class="skill-section">
+        <div class="skill-icon-wrapper">
+          <img src="playwright logo.png" alt="Playwright Testing" />
+        </div>
+        <p class="skill-text">
+          <strong>Playwright Automation:</strong> Experienced in end-to-end web
+          testing using <b>Playwright</b>, including cross-browser testing on
+          Chromium, Firefox, and WebKit. Skilled in creating reliable automation
+          scripts with features like <b>auto-waiting</b>,
+          <b>network interception</b>, and <b>parallel test execution</b>.
+          Integrated Playwright tests with CI/CD pipelines for continuous
+          quality assurance.
+        </p>
+      </div>
     </div>
+  </div>
 
-    <footer>© 2025 Automation Hub | Built by Rohit Shindhe</footer>
+  <footer>© 2025 Automation Hub | Built by Rohit Shindhe</footer>
 </body>
 
 </html>

@@ -21,17 +21,39 @@
             padding: 15px 0;
         }
 
-        nav a {
-            color: white;
-            margin: 0 20px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
+       nav a {
+  position: relative;
+  display: inline-block;
+  color: #bbb;
+  margin: 0 18px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  padding-bottom: 5px; /* space for underline */
+}
 
-        nav a:hover {
-            color: #ff4b5c;
-        }
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ff4b5c, #ffd966);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #ff4b5c;
+}
+
+nav a:hover::after,
+nav a:focus::after {
+  width: 100%;
+}
+
 
         .container {
             max-width: 1200px;
@@ -76,6 +98,22 @@
             padding: 20px;
             background: rgba(0, 0, 0, 0.8);
         }
+
+        .certification-section {
+            display: flex;
+            align-items: center;
+            background: #2a2b4a;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .certification-section img {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+        }
     </style>
 </head>
 
@@ -87,7 +125,6 @@
         <a href="work-experience.html">Work Experience</a>
         <a href="resume.html">Resume</a>
         <a href="contact.html">Contact</a>
-      
     </nav>
 
     <div class="container">
@@ -111,6 +148,13 @@
         <div class="project-section">
             <img src="https://cdn-icons-png.flaticon.com/512/4825/4825073.png" alt="CI/CD Framework">
             <p><strong>CI/CD Framework:</strong> Developed a hybrid automation framework integrating <b>Docker</b> for isolated environments and <b>Jenkins</b> for automated build and deployment pipelines, ensuring rapid feedback and reduced manual intervention.</p>
+        </div>
+
+        <h1>Certifications</h1>
+
+        <div class="certification-section">
+            <img src="Kodnest-Logo-400-300x300.png" alt="Kodnest Certification">
+            <p><strong>Certified Manual & Automation Tester:</strong> Certified by <b>Kodnest</b> for expertise in manual and automated testing methodologies, including functional, regression, and API testing.</p>
         </div>
 
     </div>

@@ -2,148 +2,426 @@
 <html lang="en">
 
 <head>
-    <title>Automation Hub - Resume</title>
-    <link rel="stylesheet" href="style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #1e1e2f;
-            color: #fff;
-            line-height: 1.8;
-            overflow-x: hidden;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 20px;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        h1, h2 {
-            color: #ff4b5c;
-        }
-        header {
-            text-align: center;
-            padding: 40px 0;
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
-            border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-        }
-        header h1 {
-            font-size: 3rem;
-            margin: 0;
-        }
-        .section {
-            margin-top: 40px;
-            padding: 20px;
-            border-radius: 15px;
-            background: #2a2b4a;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        ul li::before {
-            content: "★";
-            color: #ff4b5c;
-            padding-right: 10px;
-        }
-        a {
-            color: #ff4b5c;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-        }
-    </style>
+  <title>Automation Hub - Resume</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #1e1e2f 0%, #12121f 100%);
+      color: #f5f5f5;
+      line-height: 1.8;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      background: rgba(20, 20, 40, 0.85);
+      text-align: center;
+      padding: 15px 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
+      font-weight: 600;
+    }
+
+   nav a {
+  position: relative;
+  display: inline-block;
+  color: #bbb;
+  margin: 0 18px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  padding-bottom: 5px; /* space for underline */
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ff4b5c, #ffd966);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #ff4b5c;
+}
+
+nav a:hover::after,
+nav a:focus::after {
+  width: 100%;
+}
+
+  header {
+    position: relative;
+    text-align: center;
+    padding: 70px 20px 40px 20px;
+    border-radius: 20px;
+    margin: 80px auto 30px auto;
+    max-width: 900px;
+    color: #fff;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  }
+  header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+  }
+  header p {
+    font-size: 1.2rem;
+    color: #ffd966;
+    letter-spacing: 0.8px;
+  }
+
+  header p a {
+    color: #ffd966;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+
+  header p a:hover {
+    border-color: #ffd966;
+  }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto 60px auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      background: rgba(30, 30, 47, 0.9);
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+      margin-bottom: 40px;
+      padding: 30px 40px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(40px);
+      animation-fill-mode: forwards;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+      animation-delay: 0.3s;
+    }
+
+    .section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(255, 75, 92, 0.6);
+    }
+
+    .section h2 {
+      color: #ff4b5c;
+      margin-bottom: 25px;
+      font-size: 2.2rem;
+      border-left: 6px solid #ff4b5c;
+      padding-left: 15px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .section h3 {
+      color: #ffa7ac;
+      margin-top: 15px;
+      font-weight: 600;
+      font-size: 1.3rem;
+    }
+
+    .section h4 {
+      color: #ffd966;
+      margin-top: 20px;
+      font-weight: 600;
+      font-size: 1.15rem;
+    }
+
+    p,
+    ul {
+      font-size: 1.1rem;
+      color: #ddd;
+    }
+
+    ul {
+      padding-left: 20px;
+      list-style-type: none;
+    }
+
+    ul li {
+      position: relative;
+      margin-bottom: 12px;
+      padding-left: 25px;
+      color: #ddd;
+      transition: color 0.3s ease;
+    }
+
+    ul li::before {
+      content: "★";
+      position: absolute;
+      left: 0;
+      color: #ff4b5c;
+      font-size: 1.2rem;
+      line-height: 1;
+      top: 2px;
+    }
+
+    ul li:hover {
+      color: #ff4b5c;
+    }
+
+    a {
+      color: #ff4b5c;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    a:hover,
+    a:focus {
+      color: #ffa7ac;
+      outline: none;
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 10px;
+      font-size: 0.9rem;
+      color: #666;
+      background: #12121f;
+      letter-spacing: 0.8px;
+      user-select: none;
+    }
+      .header-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.5) blur(2px);
+    z-index: 0;
+    border-radius: 20px;
+  }
+  header h1,
+  header p {
+    position: relative;
+    z-index: 1;
+  }
+
+    /* Button style for portfolio */
+    .btn-portfolio {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 25px;
+      background: #ff4b5c;
+      color: #fff;
+      font-weight: 700;
+      border-radius: 30px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      transition: background 0.3s ease;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(255, 75, 92, 0.6);
+    }
+
+    .btn-portfolio:hover,
+    .btn-portfolio:focus {
+      background: #d73947;
+      outline: none;
+      box-shadow: 0 8px 25px rgba(215, 57, 71, 0.8);
+    }
+
+    /* Scroll reveal animation using JS */
+  </style>
 </head>
 
 <body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="skills.html">Skills</a>
-        <a href="projects.html">Projects</a>
-        <a href="work-experience.html">Work Experience</a>
-        <a href="resume.html">Resume</a>
-        <a href="contact.html">Contact</a>
-      
-    </nav>
-    <header>
-        <h1>Resume - Rohit Shindhe</h1>
-    </header>
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="work-experience.html">Work Experience</a>
+    <a href="resume.html">Resume</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-    <div class="container">
+  <!-- Header -->
+<header>
+  <div class="header-bg"></div>
+  <h1>Resume - Rohit Shindhe</h1>
+  <p>
+    Gokak, Karnataka • +91 8884245366 •
+    <a href="mailto:rohitshindhe1967@gmail.com" aria-label="Send email to Rohit Shindhe">
+      rohitshindhe1967@gmail.com
+    </a>
+  </p>
+</header>
 
-        <section id="projects" class="section">
-            <h2>My Automation Projects</h2>
-            <ul>
-                <li><strong>Excel Automation:</strong> Automated bulk data mapping with VBA scripts.</li>
-                <li><strong>API Testing:</strong> Automating REST API validation with Postman and Python.</li>
-                <li><strong>Data Processing:</strong> Transforming complex datasets into meaningful reports.</li>
-                <li><strong>E-Invoicing Tool – Saudi Arabia:</strong> Automated API tests with Postman, APIDOG, and RestAssured, ensuring compliance with ZATCA regulations.</li>
-                <li><strong>GST Reconciliation System:</strong> Automated workflows for accurate GST computation and reconciliation.</li>
-                <li><strong>UI & API Testing Framework:</strong> Developed a hybrid framework integrated with CI/CD for continuous testing.</li>
-            </ul>
-        </section>
+  <main class="container">
+    <!-- Summary -->
+    <section class="section reveal">
+      <h2>Summary</h2>
+      <p>
+        Automation and Manual QA professional with 3+ years of experience in designing and implementing end-to-end
+        test solutions across functional, integration, regression, and API testing. Proven expertise in BFSI and
+        Taxation domains, with recent focus on automating critical AIG workflows using Java, Playwright, and the GATE
+        framework. Skilled in API testing with Rest Assured and continuous integration through Jenkins CI/CD pipelines.
+        Adept at ensuring high quality deliverables through robust test automation, defect tracking, and agile
+        collaboration.
+      </p>
+    </section>
 
-        <section id="experience" class="section">
-            <h2>Work Experience</h2>
-            <p><strong>Automation/Manual QA</strong><br>Abylle Solutions Private Limited (Sep 2022 – Present)</p>
-            <ul>
-                <li>Performed functional, regression, and API testing.</li>
-                <li>Automated scripts using Selenium, TestNG, and Core Java.</li>
-                <li>Delivered on-site IPO support ensuring seamless system operation.</li>
-            </ul>
-        </section>
+    <!-- Education -->
+    <section class="section reveal">
+      <h2>Education</h2>
+      <p><strong>Bachelor of Engineering in Computer Science</strong><br />KLE Engineering College – Graduated: Sep
+        2021</p>
+    </section>
 
-        <section id="skills" class="section grid">
-            <div>
-                <h2>Technical Skills</h2>
-                <ul>
-                    <li>Selenium, TestNG, RestAssured</li>
-                    <li>Postman, APIDOG, Docker</li>
-                    <li>Core Java, SQL, JavaScript, TypeScript</li>
-                    <li>CI/CD, Selenium Grid, Appium</li>
-                </ul>
-            </div>
+    <!-- Work Experience -->
+    <section class="section reveal">
+      <h2>Work Experience</h2>
 
-            <div>
-                <h2>Certifications</h2>
-                <ul>
-                    <li>Selenium Automation Testing</li>
-                    <li>Manual Testing</li>
-                    <li>API Testing Certification</li>
-                </ul>
-            </div>
+      <h3>Software Engineer<br />Capgemini Technology Services India Limited</h3>
+      <p><strong>Jun 2025 – Present</strong></p>
+      <p><strong>Key Project:</strong> AIG (American International Group) Application Automation (Java + Playwright + GATE
+        Framework)</p>
+      <ul>
+        <li>Develop end-to-end automation for AIG’s internal application using Java and Playwright (GATE framework).</li>
+        <li>Automate major business workflows such as Add Client, Add Brokerages, and Producer Code Validation.</li>
+        <li>Integrate automation suite with Jenkins CI/CD pipelines for scheduled regression testing.</li>
+        <li>Design reusable scripts with advanced error handling and dynamic selectors to reduce manual effort.</li>
+        <li>Collaborate with developers and QA leads to validate business rules and ensure sprint delivery.</li>
+        <li>Designed and executed robust automation scripts, integrated with Jenkins pipelines.</li>
+      </ul>
 
-            <div>
-                <h2>Languages</h2>
-                <p>English (Fluent), Kannada (Fluent), Hindi (Fluent)</p>
-            </div>
-        </section>
+      <h3>Automation/Manual QA<br />Abylle Solutions Private Limited</h3>
+      <p><strong>Sep 2022 – May 2025</strong></p>
 
-    </div>
+      <h4>Projects at Abylle Solutions Private Limited:</h4>
 
-    <footer>
-        <p>© 2025 Automation Hub | Built by Rohit Shindhe</p>
-    </footer>
+      <strong>E-Invoicing Tool for Tax Compliance – Saudi Arabia</strong>
+      <ul>
+        <li>Served as an Automation and Manual QA for an e-invoicing platform integrated with the Zakat, Tax, and Customs
+          Authority (ZATCA).</li>
+        <li>Performed functional, integration, and data migration testing with a focus on compliance and data privacy.</li>
+        <li>Automated and executed API tests using Postman, APIDOG, and Rest Assured, validating request-response
+          integrity.</li>
+        <li>Automated test cases using Selenium and TestNG, enhancing test efficiency and coverage.</li>
+        <li>Tracked and resolved defects using Jira and Git Scrum, ensuring timely fixes.</li>
+        <li>Conducted ad-hoc testing to explore edge cases and ensure system robustness.</li>
+      </ul>
+
+      <strong>GST Reconciliation System – Banking Project</strong>
+      <ul>
+        <li>Automated workflows to streamline GST receivable, payable, and reversal computations.</li>
+        <li>Reconciled GL balances, network files, and GSTR2 data for accurate reporting.</li>
+        <li>Automated generation of statutory data for GST portal uploads, ensuring compliance.</li>
+      </ul>
+
+      <strong>Automated UI and API Testing Framework Development</strong>
+      <ul>
+        <li>Designed and implemented a hybrid automation framework using Selenium, Rest Assured, and TestNG.</li>
+        <li>Integrated the framework with CI/CD pipelines for continuous testing.</li>
+        <li>Improved test efficiency by reducing execution time and increasing coverage.</li>
+      </ul>
+
+      <h4>Key Responsibilities:</h4>
+      <ul>
+        <li>Performed functional, regression, and API testing using Postman, APIDOG, and Rest Assured.</li>
+        <li>Automated test scripts using Selenium, TestNG, Core Java, JavaScript, and TypeScript improving test efficiency.
+        </li>
+        <li>Validated BFSI and Taxation workflows for compliance and data accuracy.</li>
+        <li>Executed ad-hoc testing for critical business workflows and edge cases.</li>
+        <li>Delivered on-site IPO support for a major client, ensuring seamless system operation.</li>
+      </ul>
+    </section>
+
+    <!-- Additional Information -->
+    <section class="section reveal">
+      <h2>Additional Information</h2>
+
+      <h3>Technical Skills</h3>
+      <ul>
+        <li>Automation Testing: Selenium, TestNG, Rest Assured, Selenium Grid, Appium, BDD Framework Cucumber</li>
+        <li>API Testing: REST API, Postman, APIDOG, Swagger</li>
+        <li>Defect Management: Jira, Git Scrum</li>
+        <li>Programming Languages: Core Java, JavaScript, TypeScript, SQL</li>
+        <li>CI/CD & Version Control: Jenkins, Maven, GitLab CI/CD Integration, Docker</li>
+        <li>Development Tools & IDEs: Eclipse, IntelliJ IDEA, Visual Studio</li>
+        <li>Frameworks & Libraries: Playwright, Selenium Grid</li>
+      </ul>
+
+      <h3>Domains</h3>
+      <p>BFSI (Banking, Financial Services, and Insurance), Taxation (E-Invoicing, GST Compliance)</p>
+
+      <h3>Certifications</h3>
+      <ul>
+        <li>Selenium Automation Testing</li>
+        <li>Manual Testing</li>
+        <li>API Testing Certification</li>
+      </ul>
+
+      <h3>Languages</h3>
+      <p>English (Fluent), Kannada (Fluent), Hindi (Fluent)</p>
+
+      <h3>Other Skills</h3>
+      <p>Client walkthroughs, system functionality explanations, strong reporting in Agile environments</p>
+
+      <h3>Strengths</h3>
+      <p>Hard-working, responsible, with strong leadership and teamwork skills.</p>
+
+      <h3>Automation Portfolio</h3>
+      <a class="btn-portfolio" href="https://rohit1967.github.io/automation-portfolio/index.html" target="_blank"
+        rel="noopener noreferrer" aria-label="Open Rohit Shindhe's automation portfolio">
+        View My Automation Portfolio
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Automation Hub | Built by Rohit Shindhe</p>
+  </footer>
+
+  <script>
+    // Scroll reveal animation for sections
+    const revealElements = document.querySelectorAll('.reveal');
+
+    function revealOnScroll() {
+      const windowHeight = window.innerHeight;
+      revealElements.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+        if (elementTop < windowHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
 </body>
 
 </html>
